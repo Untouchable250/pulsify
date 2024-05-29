@@ -266,12 +266,109 @@
 
     <div class="container">
         <h1>Welcome to Pulsify</h1>
-        <div class="slogan">
-            <span style="color: #ff073a;">Set your heart ablaze</span>, 
-            <span style="color: #00e5ff;">overcome your limits</span>
+        <style>
+            .neon-red {
+                color: #FF0000;
+                text-shadow: 
+                    0 0 5px #FF0000,
+                    0 0 10px #FF0000,
+                    0 0 20px #FF0000,
+                    0 0 40px #FF0000,
+                    0 0 80px #FF0000;
+                animation: neon-flicker-red 1.5s infinite alternate;
+            }
+            .neon-blue {
+                color: #00FFFF;
+                text-shadow: 
+                    0 0 5px #00FFFF,
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 40px #00FFFF,
+                    0 0 80px #00FFFF;
+                animation: neon-flicker-blue 1.5s infinite alternate;
+            }
+            .gradient-comma {
+                background: linear-gradient(to right, #FF0000, #0000FF);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: bold;
+                text-shadow: 
+                    0 0 5px #FF0000,
+                    0 0 10px #FF0000,
+                    0 0 20px #FF0000,
+                    0 0 40px #FF0000,
+                    0 0 80px #FF0000;
+                animation: neon-flicker-gradient 1.5s infinite alternate;
+            }
+            @keyframes neon-flicker-red {
+                0%, 100% {
+                    text-shadow: 
+                        0 0 5px #FF0000,
+                        0 0 10px #FF0000,
+                        0 0 20px #FF0000,
+                        0 0 40px #FF0000,
+                        0 0 80px #FF0000;
+                }
+                50% {
+                    text-shadow: 
+                        0 0 5px #FF6600,
+                        0 0 10px #FF6600,
+                        0 0 20px #FF6600,
+                        0 0 40px #FF6600,
+                        0 0 80px #FF6600;
+                }
+            }
+            @keyframes neon-flicker-blue {
+                0%, 100% {
+                    text-shadow: 
+                        0 0 5px #00FFFF,
+                        0 0 10px #00FFFF,
+                        0 0 20px #00FFFF,
+                        0 0 40px #00FFFF,
+                        0 0 80px #00FFFF;
+                }
+                50% {
+                    text-shadow: 
+                        0 0 5px #00FFFF,
+                        0 0 10px #00FFFF,
+                        0 0 20px #00FFFF,
+                        0 0 40px #00FFFF,
+                        0 0 80px #00FFFF;
+                }
+            }
+            @keyframes neon-flicker-gradient {
+                0%, 100% {
+                    text-shadow: 
+                        0 0 5px #FF0000,
+                        0 0 10px #FF0000,
+                        0 0 20px #FF0000,
+                        0 0 40px #FF0000,
+                        0 0 80px #FF0000;
+                }
+                50% {
+                    text-shadow: 
+                        0 0 5px #00FFFF,
+                        0 0 10px #00FFFF,
+                        0 0 20px #00FFFF,
+                        0 0 40px #00FFFF,
+                        0 0 80px #00FFFF;
+                }
+            }
+            .neon-text {
+                font-family: 'Arial', sans-serif;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="neon-text">
+            <span class="neon-red">set your heart ablaze</span>
+            <span class="gradient-comma">,</span>
+            <span class="neon-blue"> overcome your limits</span>
+        </p>
         </div>
         <button class="cta-button"style="color: #ff073a;font-weight: bold;">Shop Now</button> <!-- Added call-to-action button -->
-        
+
         <div class="product">
             <img src="product1.jpg" alt="Product 1">
             <div class="product-info">
