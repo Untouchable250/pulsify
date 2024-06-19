@@ -198,16 +198,12 @@
             max-width: 150px;
             height: auto;
             margin-right: 20px;
-            border-radius: 5px; 
-
+            border-radius: 5px;
             transition: transform 0.3s;
         }
 
-
         .product img:hover {
             transform: scale(1.1);
-       
-
         }
 
         .product-info {
@@ -263,11 +259,190 @@
             margin: 0;
             font-size: 1em;
         }
+
+        /* Styles for Neon Text Effects */
+        .neon-red {
+            color: #FF0000;
+            text-shadow: 
+                0 0 5px #FF0000,
+                0 0 10px #FF0000,
+                0 0 20px #FF0000,
+                0 0 40px #FF0000,
+                0 0 80px #FF0000;
+            animation: neon-flicker-red 1.5s infinite alternate;
+        }
+
+        .neon-blue {
+            color: #00FFFF;
+            text-shadow: 
+                0 0 5px #00FFFF,
+                0 0 10px #00FFFF,
+                0 0 20px #00FFFF,
+                0 0 40px #00FFFF,
+                0 0 80px #00FFFF;
+            animation: neon-flicker-blue 1.5s infinite alternate;
+        }
+
+        .gradient-comma {
+            background: linear-gradient(to right, #FF0000, #0000FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            text-shadow: 
+                0 0 5px #FF0000,
+                0 0 10px #FF0000,
+                0 0 20px #FF0000,
+                0 0 40px #FF0000,
+                0 0 80px #FF0000;
+            animation: neon-flicker-gradient 1.5s infinite alternate;
+        }
+
+        @keyframes neon-flicker-red {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #FF0000,
+                    0 0 10px #FF0000,
+                    0 0 20px #FF0000,
+                    0 0 40px #FF0000,
+                    0 0 80px #FF0000;
+            }
+            50% {
+                text-shadow: 
+                    0 0 5px #FF6600,
+                    0 0 10px #FF6600,
+                    0 0 20px #FF6600,
+                    0 0 40px #FF6600,
+                    0 0 80px #FF6600;
+            }
+        }
+
+        @keyframes neon-flicker-blue {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #00FFFF,
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 40px #00FFFF,
+                    0 0 80px #00FFFF;
+            }
+            50% {
+                text-shadow: 
+                    0 0 5px #00FFFF,
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 40px #00FFFF,
+                    0 0 80px #00FFFF;
+            }
+        }
+
+        @keyframes neon-flicker-gradient {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #FF0000,
+                    0 0 10px #FF0000,
+                    0 0 20px #FF0000,
+                    0 0 40px #FF0000,
+                    0 0 80px #FF0000;
+            }
+            50% {
+                text-shadow: 
+                    0 0 5px #00FFFF,
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 40px #00FFFF,
+                    0 0 80px #00FFFF;
+            }
+        }
+
+        .neon-text {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none; /* Initially hidden for larger screens */
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            z-index: 1500; /* Higher z-index for the hamburger */
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: #000;
+            margin: 5px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: right;
+        }
+
+        .menu ul li {
+            padding: 15px 20px;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #000;
+            font-family: 'Bungee', cursive;
+            font-weight: 500;
+            font-size: 1.2em;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .menu ul li a:hover {
+            color: #39ff14;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block; /* Display hamburger icon for smaller screens */
+            }
+
+            nav ul {
+                display: none; /* Hide the original nav links */
+            }
+
+            .menu {
+                display: none; /* Initially hide the dropdown menu */
+            }
+
+            .menu.active {
+                display: block; /* Display the dropdown menu when active */
+            }
+        }
     </style>
 </head>
 <body>
     <header id="header">
         <div class="logo">RENGAMING</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="search-container">
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search products..." onkeypress="handleKeyPress(event)">
@@ -280,114 +455,24 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
+        <div class="menu" id="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
     </header>
-
-
 
     <div class="container">
         <h1>Welcome to RENGAMING</h1>
-        <style>
-            .neon-red {
-                color: #FF0000;
-                text-shadow: 
-                    0 0 5px #FF0000,
-                    0 0 10px #FF0000,
-                    0 0 20px #FF0000,
-                    0 0 40px #FF0000,
-                    0 0 80px #FF0000;
-                animation: neon-flicker-red 1.5s infinite alternate;
-            }
-            .neon-blue {
-                color: #00FFFF;
-                text-shadow: 
-                    0 0 5px #00FFFF,
-                    0 0 10px #00FFFF,
-                    0 0 20px #00FFFF,
-                    0 0 40px #00FFFF,
-                    0 0 80px #00FFFF;
-                animation: neon-flicker-blue 1.5s infinite alternate;
-            }
-            .gradient-comma {
-                background: linear-gradient(to right, #FF0000, #0000FF);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                font-weight: bold;
-                text-shadow: 
-                    0 0 5px #FF0000,
-                    0 0 10px #FF0000,
-                    0 0 20px #FF0000,
-                    0 0 40px #FF0000,
-                    0 0 80px #FF0000;
-                animation: neon-flicker-gradient 1.5s infinite alternate;
-            }
-            @keyframes neon-flicker-red {
-                0%, 100% {
-                    text-shadow: 
-                        0 0 5px #FF0000,
-                        0 0 10px #FF0000,
-                        0 0 20px #FF0000,
-                        0 0 40px #FF0000,
-                        0 0 80px #FF0000;
-                }
-                50% {
-                    text-shadow: 
-                        0 0 5px #FF6600,
-                        0 0 10px #FF6600,
-                        0 0 20px #FF6600,
-                        0 0 40px #FF6600,
-                        0 0 80px #FF6600;
-                }
-            }
-            @keyframes neon-flicker-blue {
-                0%, 100% {
-                    text-shadow: 
-                        0 0 5px #00FFFF,
-                        0 0 10px #00FFFF,
-                        0 0 20px #00FFFF,
-                        0 0 40px #00FFFF,
-                        0 0 80px #00FFFF;
-                }
-                50% {
-                    text-shadow: 
-                        0 0 5px #00FFFF,
-                        0 0 10px #00FFFF,
-                        0 0 20px #00FFFF,
-                        0 0 40px #00FFFF,
-                        0 0 80px #00FFFF;
-                }
-            }
-            @keyframes neon-flicker-gradient {
-                0%, 100% {
-                    text-shadow: 
-                        0 0 5px #FF0000,
-                        0 0 10px #FF0000,
-                        0 0 20px #FF0000,
-                        0 0 40px #FF0000,
-                        0 0 80px #FF0000;
-                }
-                50% {
-                    text-shadow: 
-                        0 0 5px #00FFFF,
-                        0 0 10px #00FFFF,
-                        0 0 20px #00FFFF,
-                        0 0 40px #00FFFF,
-                        0 0 80px #00FFFF;
-                }
-            }
-            .neon-text {
-                font-family: 'Arial', sans-serif;
-                font-size: 24px;
-            }
-        </style>
-    </head>
-    <body>
         <p class="neon-text">
             <span class="neon-red">set your heart ablaze</span>
             <span class="gradient-comma">,</span>
             <span class="neon-blue"> overcome your limits</span>
         </p>
-        </div>
-        <button class="cta-button"style="color: #ff073a;font-weight: bold;">Recommended for you</button> <!-- Added call-to-action button -->
+
+        <button class="cta-button">Recommended for you</button> <!-- Added call-to-action button -->
 
         <div class="product">
             <img src="product 1.png" alt="Product 1">
@@ -397,5 +482,13 @@
                 <span class="product-price">$19.99</span> <!-- Added missing closing tag -->
             </div>
         </div>
-    </body>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("active");
+        }
+    </script>
+</body>
 </html>
