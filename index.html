@@ -198,7 +198,7 @@
             max-width: 150px;
             height: auto;
             margin-right: 20px;
-            border-radius: 5px;
+            border-radius: 5px; 
             transition: transform 0.3s;
         }
 
@@ -260,177 +260,100 @@
             font-size: 1em;
         }
 
-        /* Styles for Neon Text Effects */
-        .neon-red {
-            color: #FF0000;
-            text-shadow: 
-                0 0 5px #FF0000,
-                0 0 10px #FF0000,
-                0 0 20px #FF0000,
-                0 0 40px #FF0000,
-                0 0 80px #FF0000;
-            animation: neon-flicker-red 1.5s infinite alternate;
-        }
-
-        .neon-blue {
-            color: #00FFFF;
-            text-shadow: 
-                0 0 5px #00FFFF,
-                0 0 10px #00FFFF,
-                0 0 20px #00FFFF,
-                0 0 40px #00FFFF,
-                0 0 80px #00FFFF;
-            animation: neon-flicker-blue 1.5s infinite alternate;
-        }
-
-        .gradient-comma {
-            background: linear-gradient(to right, #FF0000, #0000FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-            text-shadow: 
-                0 0 5px #FF0000,
-                0 0 10px #FF0000,
-                0 0 20px #FF0000,
-                0 0 40px #FF0000,
-                0 0 80px #FF0000;
-            animation: neon-flicker-gradient 1.5s infinite alternate;
-        }
-
-        @keyframes neon-flicker-red {
-            0%, 100% {
-                text-shadow: 
-                    0 0 5px #FF0000,
-                    0 0 10px #FF0000,
-                    0 0 20px #FF0000,
-                    0 0 40px #FF0000,
-                    0 0 80px #FF0000;
-            }
-            50% {
-                text-shadow: 
-                    0 0 5px #FF6600,
-                    0 0 10px #FF6600,
-                    0 0 20px #FF6600,
-                    0 0 40px #FF6600,
-                    0 0 80px #FF6600;
-            }
-        }
-
-        @keyframes neon-flicker-blue {
-            0%, 100% {
-                text-shadow: 
-                    0 0 5px #00FFFF,
-                    0 0 10px #00FFFF,
-                    0 0 20px #00FFFF,
-                    0 0 40px #00FFFF,
-                    0 0 80px #00FFFF;
-            }
-            50% {
-                text-shadow: 
-                    0 0 5px #00FFFF,
-                    0 0 10px #00FFFF,
-                    0 0 20px #00FFFF,
-                    0 0 40px #00FFFF,
-                    0 0 80px #00FFFF;
-            }
-        }
-
-        @keyframes neon-flicker-gradient {
-            0%, 100% {
-                text-shadow: 
-                    0 0 5px #FF0000,
-                    0 0 10px #FF0000,
-                    0 0 20px #FF0000,
-                    0 0 40px #FF0000,
-                    0 0 80px #FF0000;
-            }
-            50% {
-                text-shadow: 
-                    0 0 5px #00FFFF,
-                    0 0 10px #00FFFF,
-                    0 0 20px #00FFFF,
-                    0 0 40px #00FFFF,
-                    0 0 80px #00FFFF;
-            }
-        }
-
-        .neon-text {
-            font-family: 'Arial', sans-serif;
-            font-size: 24px;
-        }
-
-        /* Hamburger Menu Styles */
-        .hamburger {
-            display: none; /* Initially hidden for larger screens */
-            cursor: pointer;
-            padding: 10px;
-            position: relative;
-            z-index: 1500; /* Higher z-index for the hamburger */
-        }
-
-        .hamburger div {
-            width: 30px;
-            height: 3px;
-            background-color: #000;
-            margin: 5px 0;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-
-        .menu {
+        /* Styles for mobile menu */
+        .menu-icon {
             display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
+            font-size: 1.5em;
+            cursor: pointer;
         }
 
-        .menu.active {
-            display: block;
+        nav ul {
+            display: flex;
         }
 
-        .menu ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            text-align: right;
-        }
-
-        .menu ul li {
-            padding: 15px 20px;
-        }
-
-        .menu ul li a {
-            text-decoration: none;
-            color: #000;
-            font-family: 'Bungee', cursive;
-            font-weight: 500;
-            font-size: 1.2em;
-            display: block;
-            transition: color 0.3s;
-        }
-
-        .menu ul li a:hover {
-            color: #39ff14;
-        }
-
-        /* Media Query for Mobile Devices */
         @media (max-width: 768px) {
-            .hamburger {
-                display: block; /* Display hamburger icon for smaller screens */
+            .menu-icon {
+                display: block;
+                margin-right: 20px;
             }
 
             nav ul {
-                display: none; /* Hide the original nav links */
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: linear-gradient(135deg, #ff0000, #ff7f00, #ffff00);
+                width: 200px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+                z-index: 1000;
             }
 
-            .menu {
-                display: none; /* Initially hide the dropdown menu */
+            nav ul.active {
+                display: flex;
             }
 
-            .menu.active {
-                display: block; /* Display the dropdown menu when active */
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            nav ul li a {
+                font-size: 1.2em;
+                padding: 10px 20px;
+            }
+
+            .cta-button {
+                padding: 10px 20px; /* Adjust padding for mobile */
+                font-size: 1em; /* Smaller font size for mobile */
+                top: 70%;
+            }
+
+            .search-bar input[type="text"] {
+                width: 80%; /* Adjust width for mobile */
+                font-size: 1em; /* Smaller font size for mobile */
+            }
+
+            .logo {
+                font-size: 1.5em; /* Smaller logo size for mobile */
+            }
+
+            .slogan {
+                font-size: 1em; /* Smaller slogan size for mobile */
+            }
+
+            .container h1 {
+                font-size: 2em; /* Smaller heading size for mobile */
+            }
+
+            .product {
+                flex-direction: column; /* Stack items vertically for mobile */
+                align-items: center;
+            }
+
+            .product img {
+                margin: 0 0 20px 0; /* Adjust margins for mobile */
+                max-width: 100px; /* Smaller image size for mobile */
+            }
+
+            .product-info h2 {
+                font-size: 1.2em; /* Smaller font size for mobile */
+            }
+
+            .product-info p {
+                font-size: 0.9em; /* Smaller font size for mobile */
+            }
+
+            .product-price {
+                font-size: 1em; /* Smaller font size for mobile */
+            }
+
+            .cart {
+                padding: 10px 15px; /* Adjust padding for mobile */
+                font-size: 1em; /* Smaller font size for mobile */
+            }
+
+            footer p {
+                font-size: 0.9em; /* Smaller font size for mobile */
             }
         }
     </style>
@@ -438,16 +361,12 @@
 <body>
     <header id="header">
         <div class="logo">RENGAMING</div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
         <div class="search-container">
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search products..." onkeypress="handleKeyPress(event)">
             </div>
         </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -455,39 +374,124 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-        <div class="menu" id="menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
     </header>
 
     <div class="container">
         <h1>Welcome to RENGAMING</h1>
+        <style>
+            .neon-red {
+                color: #FF0000;
+                text-shadow: 
+                    0 0 5px #FF0000,
+                    0 0 10px #FF0000,
+                    0 0 20px #FF0000,
+                    0 0 40px #FF0000,
+                    0 0 80px #FF0000;
+                animation: neon-flicker-red 1.5s infinite alternate;
+            }
+            .neon-blue {
+                color: #00FFFF;
+                text-shadow: 
+                    0 0 5px #00FFFF,
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 40px #00FFFF,
+                    0 0 80px #00FFFF;
+                animation: neon-flicker-blue 1.5s infinite alternate;
+            }
+            .gradient-comma {
+                background: linear-gradient(to right, #FF0000, #0000FF);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: bold;
+                text-shadow: 
+                    0 0 5px #FF0000,
+                    0 0 10px #FF0000,
+                    0 0 20px #FF0000,
+                    0 0 40px #FF0000,
+                    0 0 80px #FF0000;
+                animation: neon-flicker-gradient 1.5s infinite alternate;
+            }
+            @keyframes neon-flicker-red {
+                0%, 100% {
+                    text-shadow: 
+                        0 0 5px #FF0000,
+                        0 0 10px #FF0000,
+                        0 0 20px #FF0000,
+                        0 0 40px #FF0000,
+                        0 0 80px #FF0000;
+                }
+                50% {
+                    text-shadow: 
+                        0 0 5px #FF6600,
+                        0 0 10px #FF6600,
+                        0 0 20px #FF6600,
+                        0 0 40px #FF6600,
+                        0 0 80px #FF6600;
+                }
+            }
+            @keyframes neon-flicker-blue {
+                0%, 100% {
+                    text-shadow: 
+                        0 0 5px #00FFFF,
+                        0 0 10px #00FFFF,
+                        0 0 20px #00FFFF,
+                        0 0 40px #00FFFF,
+                        0 0 80px #00FFFF;
+                }
+                50% {
+                    text-shadow: 
+                        0 0 5px #00FFFF,
+                        0 0 10px #00FFFF,
+                        0 0 20px #00FFFF,
+                        0 0 40px #00FFFF,
+                        0 0 80px #00FFFF;
+                }
+            }
+            @keyframes neon-flicker-gradient {
+                0%, 100% {
+                    text-shadow: 
+                        0 0 5px #FF0000,
+                        0 0 10px #FF0000,
+                        0 0 20px #FF0000,
+                        0 0 40px #FF0000,
+                        0 0 80px #FF0000;
+                }
+                50% {
+                    text-shadow: 
+                        0 0 5px #00FFFF,
+                        0 0 10px #00FFFF,
+                        0 0 20px #00FFFF,
+                        0 0 40px #00FFFF,
+                        0 0 80px #00FFFF;
+                }
+            }
+            .neon-text {
+                font-family: 'Arial', sans-serif;
+                font-size: 24px;
+            }
+        </style>
         <p class="neon-text">
             <span class="neon-red">set your heart ablaze</span>
             <span class="gradient-comma">,</span>
             <span class="neon-blue"> overcome your limits</span>
         </p>
+    </div>
+    <button class="cta-button" style="color: #ff073a;font-weight: bold;">Recommended for you</button> <!-- Added call-to-action button -->
 
-        <button class="cta-button">Recommended for you</button> <!-- Added call-to-action button -->
-
-        <div class="product">
-            <img src="product 1.png" alt="Product 1">
-            <div class="product-info">
-                <h2>Gaming Mousepad</h2>
-                <p>The best mousepad any gamer can have.</p>
-                <span class="product-price">$19.99</span> <!-- Added missing closing tag -->
-            </div>
+    <div class="product">
+        <img src="product 1.png" alt="Product 1">
+        <div class="product-info">
+            <h2>Gaming Mousepad</h2>
+            <p>The best mousepad any gamer can have.</p>
+            <span class="product-price">$19.99</span> <!-- Added missing closing tag -->
         </div>
     </div>
 
     <script>
         function toggleMenu() {
-            var menu = document.getElementById("menu");
-            menu.classList.toggle("active");
+            var nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
         }
     </script>
 </body>
